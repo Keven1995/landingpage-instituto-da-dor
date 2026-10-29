@@ -2,6 +2,7 @@ node_modules/
 dist/
 backend/target/
 *.log
+*.tsbuildinfo
 
 # Environment files may contain credentials. Keep the placeholder templates.
 **/.env
