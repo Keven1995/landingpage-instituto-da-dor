@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: instituto-da-dor-api
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: false
+clinic:
+  whatsapp-number: ${CLINIC_WHATSAPP_NUMBER:5561994443807}
+app:
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:}

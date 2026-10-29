@@ -1,0 +1,238 @@
+/*
+ * Identidade visual do Instituto da Dor — Guilherme Araújo
+ *
+ * Cores fornecidas pela clínica:
+ *   verde sálvia     #A8BAB2
+ *   verde médio      #65A778
+ *   verde profundo   #1D503E
+ *   grafite          #49494A
+ *
+ * A marca utiliza Anziano Pro Regular e Recta Small Caps. Como os
+ * arquivos licenciados não foram enviados, o site usa Cormorant
+ * Garamond e Jost como equivalentes livres para a tipografia viva.
+ * O símbolo original é exibido diretamente da referência fornecida.
+ */
+
+:root {
+  --purple: #1d503e;
+  --purple-deep: #14392c;
+  --violet: #65a778;
+  --lilac: #dce9df;
+  --ink: #333d37;
+  --muted: #65736b;
+  font-family: 'Recta', 'Jost', sans-serif;
+  color: #39453e;
+  background: #fbfcfa;
+}
+
+body { background: #fbfcfa; }
+.eyebrow, .whatsapp-button, .brand-copy small, .about-panel-number,
+.concern-top span, .step-number, .faq-item button, .outline-action,
+.mobile-sticky-cta, .footer-col h4, .map-bottom-label {
+  font-family: 'Recta', 'Jost', sans-serif;
+}
+h1, h2, h3, h4,
+.brand-copy strong {
+  font-family: 'Anziano Pro', 'Cormorant Garamond', Georgia, serif;
+}
+h1, h2 { font-weight: 600; letter-spacing: -.024em; }
+h3 { font-weight: 600; letter-spacing: -.012em; }
+h1 em, h2 em { font-weight: 500; }
+
+/* Marca real recortada visualmente do arquivo enviado, sem redesenho. */
+.brand { min-width: 267px; gap: 9px; }
+.brand-symbol {
+  flex: none;
+  width: 52px;
+  height: 55px;
+  border-radius: 0;
+  transform: none;
+  background: #fff url('/brand-reference.png') center -8px / 180px 225px no-repeat;
+}
+.brand-symbol::before, .brand-symbol::after, .brand-symbol-core { display: none; }
+.brand-copy { gap: 2px; }
+.brand-copy strong {
+  color: #1d503e;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+}
+.brand-copy small {
+  color: #65a778;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .25em;
+}
+.main-nav > a { color: #49494a; }
+.main-nav > a:hover { color: #1d503e; }
+.site-header { box-shadow: 0 8px 35px #1d503e0a; }
+
+.announcement { background: #153e30; color: #e7f0e9; }
+.announcement-location { color: #b8d1c0; }
+.online-dot { background: #86cea0; box-shadow: 0 0 0 4px #86cea01c; }
+.whatsapp-button { background: #1d503e; color: #fff; font-size: 12px; }
+.whatsapp-button:hover { background: #296d51; box-shadow: 0 12px 22px #1d503e22; }
+.whatsapp-button--light { background: #f5faf6; color: #194734; }
+.whatsapp-button--light:hover { background: #fff; box-shadow: 0 12px 22px #09281a30; }
+.whatsapp-button--outline { background: transparent; color: #1d503e; border-color: #a8bab2; }
+.whatsapp-button--outline:hover { background: #e8f0e9; }
+.menu-toggle { background: #e9f2ec; color: #1d503e; }
+
+/* Abertura */
+.hero {
+  background: radial-gradient(ellipse 70% 115% at 92% 50%, #438267 0%, #2a644b 38%, #1d503e 75%, #143a2e 100%);
+}
+.hero::before { border-color: #e7f4e510; }
+.hero-noise { background-image: radial-gradient(#d4ecdc50 .65px, transparent .65px); }
+.hero-eyebrow, .hero .eyebrow { color: #d4eadb; }
+.eyebrow { color: #d2e4d7; }
+.eyebrow--dark { color: #538b68; }
+h1 {
+  font-size: clamp(49px, 5.1vw, 76px);
+  line-height: 1.05;
+  margin: 25px 0 25px;
+  max-width: 675px;
+}
+h1 em, .journey-header h2 em, .final-cta h2 em { color: #b7d9bf; }
+.hero-description { color: #e4efe6; }
+.quiet-link { color: #e3f0e6; }
+.quiet-link:hover { color: #fff; }
+.hero-trust { color: #cbe5d2; }
+.trust-check { color: #c5ebd0; border-color: #c5ebd0; }
+.hero-art-disc {
+  background: radial-gradient(circle at 52% 43%, #78b58b 0%, #417b5e 54%, #2d644c 100%);
+  box-shadow: inset 0 0 90px #e6f7e611, 0 0 110px #a8d7aa24;
+}
+.hero-art-disc::before { border-color: #deecdf22; }
+.hero-art-disc::after { border-color: #deecdf15; }
+.hero-art-orbit { border-color: #bad6c03d; }
+.orbit-two { border-color: #bad6c022; }
+.orbit-three { border-color: #bad6c015; }
+.body-line-art { color: #e8f5e9; filter: drop-shadow(0 0 18px #dbf3d388); }
+.hero-art-note {
+  background: #f8fbf6;
+  color: #3e6c4d;
+  box-shadow: 0 19px 54px #092a2050;
+}
+.hero-art-note strong { color: #1d503e; }
+.note-icon { background: #e0eee2; color: #65a778; }
+.hero-art-caption { color: #c6e2cc; }
+.caption-divider { background: #7bb591; }
+
+/* Faixa de credibilidade e apresentação */
+.value-strip { background: #e7f0e9; }
+.value-strip-inner > div { color: #355e46; }
+.value-strip-inner > div:not(:last-child) { border-color: #c4d9c9; }
+.value-strip-inner svg { color: #65a778; }
+.about { background: #fff; }
+.about-panel { background: radial-gradient(circle at 79% 28%, #a8bab2 0%, #65a778 48%, #1d503e 100%); }
+.about-panel::after { border-color: #f2fff533; }
+.line-loop { border-color: #f0fff7b3; box-shadow: 0 0 30px #e4f4e442; }
+.line-loop-c, .line-loop-d { border-color: #e8f6e88c; }
+.about-panel-footer { color: #f2fff6; }
+.about-floating-card { box-shadow: 0 22px 60px #1d503e1b; }
+.floating-heart { background: #e7f0e8; color: #65a778; }
+.about-floating-card strong, .about-copy h2,
+.section-heading h2, .location-copy h2, .faq-intro h2 { color: #264335; }
+.about-floating-card small, .about-copy p { color: #68776d; }
+.about-copy h2, .section-heading h2, .location-copy h2, .faq-intro h2 {
+  font-size: clamp(43px, 4vw, 59px);
+  line-height: 1.08;
+  letter-spacing: -.022em;
+}
+.about-highlight { background: #edf4ed; color: #3d5947; border-color: #65a778; }
+.about-highlight-icon, .text-link { color: #398159; }
+.text-link { border-color: #99c5a2; }
+.text-link:hover { color: #1d503e; }
+
+/* Dores e situações */
+.concerns { background: #f5f8f5; }
+.section-heading h2 em, .location-copy h2 em, .faq-intro h2 em { color: #65a778; }
+.section-heading > p, .concern-bottom p { color: #6b776d; }
+.concern-card { border-color: #dce8de; }
+.concern-card:hover { border-color: #bad3c1; box-shadow: 0 18px 30px #1d503e12; }
+.concern-top, .concern-top span { color: #65a778; }
+.concern-bottom h3 { font-size: 26px; line-height: 1.08; color: #234735; }
+.clinical-note { color: #738778; }
+
+/* Passos */
+.journey { background: #1d503e; }
+.journey::after { border-color: #ebf9ed0c; }
+.journey-header h2, .final-cta h2 { font-size: clamp(45px, 4.8vw, 68px); line-height: 1.06; }
+.journey-header > p, .step p { color: #d1e7d6; }
+.step-number { color: #a7cdb1; }
+.step-symbol { background: #336d52; border-color: #74a886; color: #ebf8ee; }
+.step-divider { color: #b7d7bd; }
+.step h3 { font-size: 26px; }
+
+/* Endereço */
+.location-section { background: #fff; }
+.location-copy > p, .location-details span { color: #6c786f; }
+.location-details { border-color: #e2eae3; }
+.location-detail-icon { background: #eaf2ec; color: #418259; }
+.location-details small { color: #65a778; }
+.location-details strong { color: #264735; }
+.outline-action { background: #1d503e; }
+.outline-action:hover { background: #2b6a4d; }
+.social-link { color: #2f6848; }
+.map-panel { background: #e3ede5; }
+.map-grid {
+  background-image: linear-gradient(to right, #c9dccf 1px, transparent 1px),
+                    linear-gradient(to bottom, #c9dccf 1px, transparent 1px);
+}
+.map-road { background: #fbfdfa; box-shadow: 0 0 0 1px #cdded1; }
+.map-pin { color: #418159; box-shadow: 0 13px 27px #19442f33; }
+.map-pin svg { color: #418159; }
+.map-bubble { box-shadow: 0 9px 25px #19442f25; }
+.map-bubble strong { color: #1d503e; }
+.map-bottom-label { background: #1d503e; }
+
+/* Perguntas, CTA e rodapé */
+.faq-section { background: #f5f8f4; }
+.faq-intro > p, .faq-item p { color: #687a6e; }
+.faq-list, .faq-item { border-color: #d5e3d8; }
+.faq-item button { color: #294b38; }
+.faq-item button svg { color: #65a778; }
+.final-cta { background: #65a778; }
+.final-cta-glow { border-color: #e7f4e713; box-shadow: 0 0 0 130px #e7f4e70b, 0 0 0 195px #e7f4e705; }
+.final-cta p { color: #f0f8f1; }
+.final-contact { color: #e8f2e9; }
+.site-footer { background: #173d2f; color: #e8f2e9; }
+.brand--light .brand-symbol { background-color: #fff; }
+.brand--light .brand-copy strong { color: #fff; }
+.brand--light .brand-copy small { color: #a8d4b3; }
+.footer-brand p, .footer-col a { color: #bfd6c5; }
+.footer-col h4 { color: #e4f2e7; }
+.footer-bottom { border-color: #ffffff25; color: #a1c0a9; }
+.mobile-sticky-cta { background: #1d503e; box-shadow: 0 -8px 30px #102e2033; }
+
+@media (max-width: 1160px) {
+  .brand { min-width: 242px; }
+  .brand-copy strong { font-size: 21px; }
+}
+@media (max-width: 950px) {
+  .main-nav { background: #fff; box-shadow: 0 20px 35px #143c2825; }
+  .main-nav > a { border-color: #e6f0e8; }
+}
+@media (max-width: 680px) {
+  .brand { min-width: 0; gap: 7px; }
+  .brand-symbol {
+    width: 43px;
+    height: 45px;
+    background-size: 148px 185px;
+    background-position: center -6px;
+  }
+  .brand-copy strong { font-size: 19px; }
+  .brand-copy small { font-size: 8px; letter-spacing: .2em; }
+  h1 { font-size: clamp(51px, 12.8vw, 69px); line-height: 1.01; }
+  .about-copy h2, .section-heading h2, .location-copy h2, .faq-intro h2 {
+    font-size: clamp(43px, 10vw, 56px);
+  }
+  .journey-header h2, .final-cta h2 { font-size: clamp(44px, 10vw, 57px); }
+  .concern-bottom h3 { font-size: 26px; }
+}
+@media (max-width: 390px) {
+  .brand-copy strong { font-size: 17px; }
+  .brand-copy small { font-size: 7px; }
+}

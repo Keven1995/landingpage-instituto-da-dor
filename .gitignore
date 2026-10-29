@@ -1,0 +1,9 @@
+node_modules/
+dist/
+backend/target/
+*.log
+
+# Environment files may contain credentials. Keep the placeholder templates.
+**/.env
+**/.env.*
+!**/.env.example
