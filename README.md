@@ -99,25 +99,44 @@ profissional decide se a avaliação remota é suficiente ou se há necessidade
 de atendimento presencial. Referências: [Resolução COFFITO 619/2025](https://www.coffito.gov.br/nsite/?p=34571)
 e [Lei 14.510/2022](https://normas.leg.br/?urn=urn%3Alex%3Abr%3Afederal%3Alei%3A2022-12-27%3B14510).
 
-## Configuração para publicação
+## Publicação na Vercel e no Render
 
-O frontend funciona sem backend graças ao fallback em `frontend/src/clinic.ts`.
-Para usar a API em produção, publique o Java em um serviço compatível com
-Spring Boot e configure no build do Vite. `VITE_API_URL` é uma configuração
-pública, incorporada ao bundle; nunca coloque tokens ou credenciais em variáveis
-com prefixo `VITE_`:
+O repositório está preparado para publicar o frontend estático na Vercel e a
+API Java no Render:
 
-```bash
-VITE_API_URL=https://seu-backend.exemplo.com npm run build
-```
+- `vercel.json` instala as dependências em `frontend`, executa o build do Vite,
+  publica `dist/`, redireciona rotas da SPA e configura headers básicos.
+- `render.yaml` cria o serviço web Docker usando `backend/Dockerfile` e verifica
+  a API por `GET /api/v1/health`.
+- O site continua funcionando com dados de fallback se a API não estiver
+  configurada ou temporariamente indisponível.
 
-Configure no backend `ALLOWED_ORIGINS` com o(s) domínio(s) do frontend,
-separados por vírgula. Sem essa variável, a API não libera CORS para origens
-cross-origin. No desenvolvimento, o proxy do Vite evita a necessidade de CORS.
-`CLINIC_WHATSAPP_NUMBER` contém somente o número público de contato, não um
-segredo.
+### Passos de publicação
 
-### Comandos no Windows PowerShell
+1. Envie o repositório ao GitHub e importe-o na Vercel. Mantenha a raiz do
+   projeto como diretório raiz; as instruções de instalação/build e `dist/` já
+   estão declaradas em `vercel.json`.
+2. Faça o primeiro deploy da Vercel e copie a origem de produção mostrada no
+   painel (por exemplo, `https://seu-projeto.vercel.app`). Não inclua caminho
+   após o domínio.
+3. No Render, crie um **Blueprint** usando este repositório e `render.yaml`.
+   Quando solicitado, informe `ALLOWED_ORIGINS` com a origem exata da Vercel.
+   Para mais de um domínio oficial, separe as origens por vírgula; não use `*`.
+4. Copie a URL pública atribuída pelo Render e, nas variáveis de ambiente da
+   Vercel, configure `VITE_API_URL` com essa URL, sem barra no final. Marque-a
+   para Production e faça um novo deploy para incorporá-la ao bundle.
+5. Se usar domínio próprio, acrescente também sua origem HTTPS exata em
+   `ALLOWED_ORIGINS` no Render. O CORS não permite curingas e não inclui
+   automaticamente URLs de preview da Vercel.
+
+`VITE_API_URL` é pública e fica incorporada ao JavaScript do site; nunca coloque
+tokens ou credenciais em variáveis `VITE_*`. O arquivo
+`frontend/.env.example` serve apenas como modelo local. O Vite usa o proxy local
+para `/api` durante desenvolvimento; em produção o frontend chama a URL Render.
+O formulário de avaliação continua abrindo o WhatsApp e não envia dados pessoais
+à API.
+
+### Build e testes locais (Windows PowerShell)
 
 ```powershell
 cd frontend
@@ -130,11 +149,10 @@ cd ..\backend
 mvn test
 ```
 
-O repositório não identifica o provedor de hospedagem atual. Configure headers
-de segurança e uma CSP primeiro em modo `Content-Security-Policy-Report-Only`
-na plataforma que servir o `dist`, valide os recursos legítimos e só depois
-considere aplicar a política. Não configure HSTS até confirmar HTTPS e o
-redirecionamento HTTP para HTTPS no domínio publicado.
+No Vercel, valide o site e os headers depois do deploy. A CSP deve ser criada
+como `Content-Security-Policy-Report-Only` somente após confirmar as origens
+reais usadas pelo frontend e pela API; HSTS deve ser considerado após verificar
+HTTPS e o redirecionamento no domínio publicado.
 
 ### Dados que precisam de validação antes da publicação pública
 

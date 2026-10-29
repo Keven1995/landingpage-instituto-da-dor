@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: instituto-da-dor-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false
